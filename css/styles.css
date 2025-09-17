@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+:root {
+  --bg: black;
+  --primary: rgb(243, 12, 12);
+  --secondary: #efef08;
+  --tertiary: #9d0abe;
+  --bg-footer: #2c2c2c;
+  --standard-margin: 40px;
+  --font: 'UnifrakturMaguntia', monospace;
+  --font2: 'Kode Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: var(--bg);
+  color: rgb(227, 227, 227);
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+main {
+  margin: 50px var(--standard-margin);
+}
+
+
+.nav-links {
+  display: flex;
+  font-weight: 600;
+  color: rgb(243, 12, 12);
+  text-decoration: none;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Tektur', monospace;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.nav-links>div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 280px;
+}
+
+.nav-links>div>a {
+  color: red;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Tektur', monospace;
+
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.brand img {
+  width: 150px;
+  height: auto;
+}
+
+.brand {
+  font-family: 'Kode Mono', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+}
+
+
+main .subtitle {
+  text-decoration: none;
+  font-family: 'UnifrakturMaguntia', monospace;
+  color: #f50404;
+}
+
+main .subtitle-below-subtitle {
+  font-family: 'Tektur', monospace;
+  font-size: 20px;
+  color: #efef08;
+
+}
+
+.nav-links {
+  text-decoration: none;
+  font-family: 'Tektur', monospace;
+
+}
+
+.logo-text {
+  font-family: 'Rubik Glitch', monospace;
+  font-size: 50px;
+  font-weight: 200;
+  color: #f50404;
+}
+
+
+main {
+  flex: 1;
+}
+
+main .par1 {
+  font-family: 'Tektur', sans-serif;
+  font-size: 18px;
+  color: #d60505;
+}
+
+.menu-text {
+  font-family: 'Tektur', sans-serif;
+  font-size: 22px;
+  color: #efef08;
+}
+
+.disclaimer {
+  font-family: 'Kode Mono', sans-serif;
+  font-size: 10px;
+  color: red;
+  list-style: "*";
+
+  &>li {
+    padding-left: 8px;
+  }
+}
+
+h4 {
+  font-family: 'Tektur', sans-serif;
+  font-size: 20px;
+  color: #e80505;
+}
+
+
+.beans-list,
+.drinks-list {
+  font-family: 'Michroma', sans-serif;
+  font-size: 16px;
+  color: #9d0abe;
+  list-style: none;
+  margin: 10px 0;
+}
+
+.beans-list>li,
+.drinks-list>li {
+  padding: 8px 0;
+  margin-left: 40px;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    list-style-type: decimal-leading-zero;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ff0000;
+
+  }
+  
+}
+
+.menu-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.menu-section .main-image img {
+  max-width: 300px;
+  height: auto;
+}
+
+
+footer {
+  background: #2c2c2c;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 20px 0;
+  height: 100%;
+}
+
+footer .footer-links {
+  margin: 20px 0;
+  font-size: 20px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 25%;
+  
+
+
+}
+
+footer .footer-links>li>a {
+  color: var(--tertiary); 
+}
+.menu-card button{
+  display: none;
+}
+.menu-card:hover button{ 
+  background: rgb(255, 0, 0);
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+  display: flex;
+
+  &:hover {
+    transform: scale(1.05);
+    background: #cc00ff;
+    color: #000000; 
+    transition: opacity 0.3s ease;
+    font-family: var(--font1);
+    
+
+
+  
+  }
+
+}
+.menu-card {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  color: var(--tertiary);
+  border: 10px solid var(--secondary);
+  flex-direction:column;
+  /* up right down left (for margins as well as padding) */
+  /* y-axis (up and down) x-axis: (right and left) */
+  padding: 20px 20px ;    
+  max-width: 390px;
+  width : 100%;
+  height : 200px;
+  margin: 10px;
+  border: 2px solid var(--tertiary);
+  box-shadow: 0 4px 8px rgba(233, 0, 245, 0.954);
+   &:hover {
+    transform: scale(1.02);
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.708);
+    cursor: pointer;
+    background-color: #efef08;
+    
+  }
+  
+  
+}
+
+
+.drink-desc{
+  font-family: var(--font);
+  font-size: 20px;
+  color: #000000;
+  margin: 2px;
+}
+
+.subtext{
+  font-family: var(--font2);
+  font-size: 20px;
+  color: var(--tertiatry);
+  margin: 2px;
+
+
+}
+
+.card-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  
+ 
+  
+  
+}
+
+.drink-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2px;
+  
+  
+}
+
+footer {
+  background: #2c2c2c;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 20px 0;
+  height: 100%;
+}
+
+/* .button{ 
+  background: black;
+  color: #00000014;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+  display: flex;
+
+  &:hover {
+    background: #cc00ff;
+    color: #000000; 
+
+
+  
+  }
+
+} */
+
+
+.price-drink{
+  font-family: var(--font2);
+  font-size: 15px;
+  color: var(--tertiary);
+  margin: 2px;
+}

@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coffee & Beans</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #2b2b2b;
+      --muted: #6b6b6b;
+      --accent: #7b4b2a; /* coffee brown */
+      --accent-2: #c7a17a; /* latte */
+      --ring: rgba(123, 75, 42, 0.25);
+      --radius: 16px;
+    }
+
+    /* Reset-ish */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; }
+
+    /* Icons (inline SVG via <use>) */
+    .icon { width: 22px; height: 22px; display: inline-block; vertical-align: middle; }
+    .icon-lg { width: 36px; height: 36px; }
+
+    /* Layout */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(246, 218, 169, 0.7);
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid #eee4d9;
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0 ;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; letter-spacing: .3px; color: var(--accent);
+    }
+    .nav-links { display: flex; gap: 18px; font-weight: 600; color: var(--muted); }
+
+    .hero {
+      padding: 48px 0 24px;
+      display: grid; gap: 14px;
+      text-align: center;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+    }
+    .hero p { color: var(--muted); margin: 0 auto; max-width: 60ch; }
+    .cta {
+      margin: 8px auto 0; display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 16px; border-radius: 999px; border: 1px solid #e7d8c6;
+      background: linear-gradient(180deg, #fff, #f6efe7);
+      box-shadow: 0 1px 0 #fff inset, 0 8px 24px rgba(123, 75, 42, .08);
+      cursor: pointer;
+    }
+    .cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(123, 75, 42, .14); }
+
+    /* Products */
+    .section-title { display: flex; align-items: center; gap: 10px; font-size: 20px; margin: 24px 0 12px; }
+    .grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid #eee4d9;
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 1px 0 #ffffff inset, 0 2px 12px rgba(0,0,0,.04);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.06); }
+    .card-header { display: flex; align-items: center; gap: 12px; }
+    .card-title { font-weight: 700; margin: 0; }
+    .card-desc { color: var(--muted); font-size: 14px; margin: 8px 0 10px; min-height: 40px; }
+    .card-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .price { font-weight: 800; color: var(--accent); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border: 1px solid #e7d8c6; background: #fff;
+      border-radius: 12px; cursor: pointer;
+    }
+    .btn:focus { outline: 3px solid var(--ring); outline-offset: 2px; }
+    .tag { font-size: 12px; color: #7a633c; background: #f5eadc; padding: 3px 8px; border-radius: 999px; }
+
+    footer {
+      margin-top: 36px; border-top: 1px solid #eee4d9; background: #fff;
+    }
+    .footer-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 16px 0; color: var(--muted); font-size: 14px;
+    }
+    .social { display: flex; gap: 14px; }
+
+    /* Tiny utility */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    footer {
+  background: #2c2c2c;
+  color: #ff0000;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+footer .footer-links {
+  margin: 10px 0;
+}
+
+footer .footer-links a {
+  color: #b2af0d;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+footer .footer-links a:hover {
+  color: #d4a373;
+}
+
+footer .social-icons a {
+  display: inline-block;
+  margin: 0 8px;
+  color: #f5f5f5;
+  transition: color 0.3s;
+}
+
+footer .social-icons a:hover {
+  color: #d4a373;
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- SVG sprite for icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="i-bean" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M7 3c3.866 0 7 3.134 7 7 0 4.418-3.582 8-8 8-3.866 0-7-3.134-7-7 0-4.418 3.582-8 8-8zm10 3c3.314 0 6 2.686 6 6 0 4.418-3.582 8-8 8-1.89 0-3.628-.654-5-1.75 2.761-.276 5-2.613 5-5.5 0-2.888 2.239-5.224 5-5.75z"/>
+    </symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M5 6h12a3 3 0 0 1 3 3v1a4 4 0 0 1-3.5 3.97A7.002 7.002 0 0 1 10 21H9a7 7 0 0 1-7-7V9a3 3 0 0 1 3-3zm15 4V9a1 1 0 0 0-1-1h-1v3.05A2 2 0 0 0 20 10zM7 3a1 1 0 0 1 1 1v1H6V4a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v1h-2V4a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v1h-2V4a1 1 0 0 1 1-1z"/>
+    </symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M7 4H3V2h4a2 2 0 0 1 1.94 1.515L9.28 6H21a1 1 0 0 1 .96 1.274l-2 7A2 2 0 0 1 18 16H9a2 2 0 0 1-1.94-1.485L5.28 8H3V6h2.28l.6 2H20.2l-1.6 5.6a1 1 0 0 1-.96.4H9a1 1 0 0 1-.97-.757L6.03 5.757A1 1 0 0 0 5.06 5H3V4h4zM8 19a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm8 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 21s-7.5-4.686-10-8.5C-.5 8.686 1.5 5 5 5c2.053 0 3.59 1.222 4.5 2.5C10.91 6.222 12.447 5 14.5 5c3.5 0 5.5 3.686 3 7.5S12 21 12 21z"/>
+    </symbol>
+  </svg>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#i-bean" /></svg>
+        <span>Coffee & Beans</span>
+      </a>
+      <nav class="nav-links">
+        <a href="menu">Menu</a>
+ <a href="/beans.html">Beans</a>
+         <a href="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Freshly brewed, lovingly roasted ☕</h1>
+      <p>Simple, clean HTML & CSS demo with header, footer, and a few coffee products. Icons are inline SVG, so it works offline and needs no external libraries.</p>
+      <a class="cta" href="#menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-cup" /></svg>
+        <span>Explore Menu</span>
+      </a>
+    </section>
+
+    <h2 id="menu" class="section-title">
+      <svg class="icon" aria-hidden="true"><use href="#i-cup" /></svg>
+      <span>Drinks</span>
+    </h2>
+    <section class="grid" aria-label="Coffee drinks">
+      <article class="card">
+        <div class="card-header">
+          <svg class="icon icon-lg" aria-hidden="true"><use href="#i-cup" /></svg>
+          <h3 class="card-title">Espresso</h3>
+          <span class="tag" aria-label="popular">Popular</span>
+        </div>
+        <p class="card-desc">A rich, intense shot to kickstart your day.</p>
+        <div class="card-bottom">
+          <span class="price">$2.50</span>
+          <button class="btn" aria-label="Add Espresso to cart">
+            <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <svg class="icon icon-lg" aria-hidden="true"><use href="#i-cup" /></svg>
+          <h3 class="card-title">Latte</h3>
+        </div>
+        <p class="card-desc">Smooth espresso with steamed milk and light foam.</p>
+        <div class="card-bottom">
+          <span class="price">$3.80</span>
+          <button class="btn" aria-label="Add Latte to cart">
+            <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <svg class="icon icon-lg" aria-hidden="true"><use href="#i-cup" /></svg>
+          <h3 class="card-title">Cappuccino</h3>
+        </div>
+        <p class="card-desc">Equal parts espresso, milk, and foam — classic.</p>
+        <div class="card-bottom">
+          <span class="price">$3.50</span>
+          <button class="btn" aria-label="Add Cappuccino to cart">
+            <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <h2 id="beans" class="section-title" style="margin-top:24px">
+      <svg class="icon" aria-hidden="true"><use href="#i-bean" /></svg>
+      <span>Beans</span>
+    </h2>
+    <section class="grid" aria-label="Coffee beans">
+      <article class="card">
+        <div class="card-header">
+          <svg class="icon icon-lg" aria-hidden="true"><use href="#i-bean" /></svg>
+          <h3 class="card-title">House Blend 250g</h3>
+        </div>
+        <p class="card-desc">Balanced chocolate & nut notes. Medium roast.</p>
+        <div class="card-bottom">
+          <span class="price">$8.90</span>
+          <button class="btn" aria-label="Add House Blend 250g to cart">
+            <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <svg class="icon icon-lg" aria-hidden="true"><use href="#i-bean" /></svg>
+          <h3 class="card-title">Single Origin 250g</h3>
+        </div>
+        <p class="card-desc">Bright citrus finish from high-altitude farms.</p>
+        <div class="card-bottom">
+          <span class="price">$10.50</span>
+          <button class="btn" aria-label="Add Single Origin 250g to cart">
+            <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+<footer>
+  <p>&copy; 2025 Coffee & Beans. All rights reserved.</p>
+  
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Menu</a>
+    <a href="#">Careers</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+
+  <div class="social-icons">
+    <a href="#" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5a3.5 3.5 0 0 1 3.7-3.9c1 0 2 .2 2 .2v2.3h-1.1c-1.1 0-1.4.7-1.4 1.3V12H18l-.5 3h-2.9v7A10 10 0 0 0 22 12z"/>
+      </svg>
+    </a>
+    <a href="#" aria-label="Twitter">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M22.46 6c-.77.35-1.6.59-2.46.7a4.3 4.3 0 0 0 1.88-2.4 8.58 8.58 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.3 3.9A12.15 12.15 0 0 1 3.15 4.6a4.28 4.28 0 0 0 1.33 5.71A4.2 4.2 0 0 1 2.8 9v.05a4.28 4.28 0 0 0 3.43 4.2 4.28 4.28 0 0 1-1.93.07 4.28 4.28 0 0 0 4 3 8.58 8.58 0 0 1-5.3 1.83c-.34 0-.67-.02-1-.06a12.14 12.14 0 0 0 6.57 1.93c7.88 0 12.2-6.53 12.2-12.2v-.56A8.7 8.7 0 0 0 22.46 6z"/>
+      </svg>
+    </a>
+    <a href="#" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.5 5.5 0 0 0 12 7.5zm0 2A3.5 3.5 0 1 1 8.5 13 3.5 3.5 0 0 1 12 9.5zm4.8-2.3a1.3 1.3 0 1 0 1.3 1.3 1.3 1.3 0 0 0-1.3-1.3z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
